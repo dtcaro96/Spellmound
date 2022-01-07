@@ -1,0 +1,3 @@
+### Local ENV Stuff ###
+.env
+node_modules
