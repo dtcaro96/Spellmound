@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
 import Spellcard from './Spellcard';
 import EditBar from './EditBar';
 import Footer from '../Components/Footer';
@@ -18,7 +19,34 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: 'cover',
         backgroundColor: theme.palette.main.darkGrey,
         backgroundImage: "url('pics/RockWall.jpg')",
-
+    },
+    displayBar: {
+        color: theme.palette.main.blood,
+        height: '80px',
+        fontFamily: 'Roboto, Helvetica, sans-serif',
+        backgroundColor: theme.palette.main.lightGrey,
+        display: 'flex',
+        border: `5px solid ${theme.palette.main.blood}`,
+        borderRadius: '5px',
+        fontSize: '1.5rem',
+        marginBottom: '9px',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+            height: '8rem'
+        }
+    },
+    span: {
+        color: theme.palette.main.charcoal,
+        fontWeight: '400'
+    },
+    title: {
+        fontWeight: '700',
+        fontSize: '1.5rem',
+        [theme.breakpoints.down('xs')]: {
+            fontSize: '1.2rem'
+        }
     },
     spellboard: {
         height: '90%',
@@ -39,9 +67,6 @@ const useStyles = makeStyles((theme) => ({
     },
     editbarContainer: {
         height: '98px',
-        [theme.breakpoints.down('sm')]: {
-
-        }
     },
     spellcardContainer: {
         height: '92%',
@@ -66,10 +91,13 @@ export default function Spellboard () {
             <Navbar />
             <div className={classes.root}>
                 <div className={classes.spellboard}>
+                    <div className={classes.displayBar}>
+                        <Typography variant='h5' className={classes.title}><span className={classes.span}>Spellboard: </span>Eldritch Horrors</Typography>
+                        <Typography variant='h5' className={classes.title}><span className={classes.span}>Character: </span>Beguilegamesh</Typography>
+                    </div>
                     <div className={classes.editbarContainer}>
                         <EditBar className={classes.editbar} />
                     </div>
-
                     <div className={classes.spellcardContainer}>
                         <Spellcard />
                         <Spellcard />
@@ -89,9 +117,7 @@ export default function Spellboard () {
                         <Spellcard />
                         <Spellcard />
                     </div>
-
                 </div>
-
             </div >
             <Footer className={classes.footer} />
         </div>

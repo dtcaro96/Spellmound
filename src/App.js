@@ -4,6 +4,7 @@ import NewForm from './Components/NewForm';
 import Spellboard from './Components/Spellboard';
 import ChooseCreate from './Components/ChooseCreate';
 import LandingPage from './Components/LandingPage';
+import LargeSpellCard from './Components/LargeSpellCard';
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -67,6 +68,10 @@ const App = () => {
             <Route exact
               path="/spellboard"
               render={() => <Spellboard className={classes.root} />}
+            ></Route>
+            <Route exact
+              path="/spellcard"
+              render={() => <LargeSpellCard className={classes.root} />}
             ></Route>
           </Switch>
         </Route>
